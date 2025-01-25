@@ -1,10 +1,11 @@
-import { buttonVariants } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main className="container mx-auto py-20 text-center">
-      <h2 className="text-4xl font-display font-black ">
+    <main className="mx-auto w-full max-w-5xl py-20 text-center">
+      <h2 className="font-display text-4xl font-black">
         Nada encontrado aqui...
       </h2>
       <img
@@ -15,12 +16,12 @@ export default function NotFound() {
       <p className="text-3xl font-extralight text-gray-400">
         Não foi possível encontrar a página solicitada.
       </p>
-      <a
-        className={cn('mt-10 block', buttonVariants({ variant: 'default' }))}
+      <Link
+        className={cn("mt-10 block", buttonVariants({ variant: "default" }))}
         href="/"
       >
         Voltar à Home
-      </a>
+      </Link>
     </main>
   );
 }

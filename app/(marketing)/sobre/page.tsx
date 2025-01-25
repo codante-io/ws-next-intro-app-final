@@ -1,8 +1,8 @@
 export default function Sobre() {
   return (
-    <section className="flex justify-between gap-4 py-10">
+    <section className="flex justify-between gap-4">
       <div>
-        <h1 className="text-5xl font-black font-display max-w-xl mb-16">
+        <h1 className="font-display mb-16 max-w-xl text-5xl font-black">
           O que você procura, <span className="text-blue-400">nós temos</span>!
         </h1>
         <div className="space-y-6 text-lg text-gray-700">
@@ -24,7 +24,11 @@ export default function Sobre() {
           </p>
         </div>
       </div>
-      <img src="/people1.png" alt="Ilustração de pessoas" className="w-3xl" />
+      <img
+        src="/people1.png"
+        alt="Ilustração de pessoas"
+        className="h-full max-w-lg"
+      />
     </section>
   );
 }

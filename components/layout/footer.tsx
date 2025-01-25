@@ -1,13 +1,14 @@
-import { Github, Instagram, LetterText, Mail } from 'lucide-react';
-import Logo from './logo';
+import { Github, Instagram, Mail } from "lucide-react";
+import Logo from "./logo";
+import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white flex py-4 ">
-      <div className="container mx-auto flex justify-between items-center py-4">
+    <footer className="flex bg-black py-4 text-gray-400">
+      <div className="mx-auto flex w-full max-w-5xl items-center justify-between py-4">
         <div className="w-sm">
           <Logo bg="dark" />
-          <p className="font-light text-sm mt-3">
+          <p className="mt-3 text-sm font-light">
             O CodanteVagas conecta candidatos a empregos ideais, oferecendo
             funcionalidades intuitivas para busca e gerenciamento de vagas.
           </p>
@@ -15,20 +16,20 @@ export default function Footer() {
         <div className="flex items-center">
           {/* Social Media */}
           <ul className="flex items-center gap-3 transition-colors">
-            <li className="hover:text-blue-400 transition-colors">
-              <a href="https://www.instagram.com/">
+            <li className="transition-colors hover:text-blue-400">
+              <Link href="https://www.instagram.com/">
                 <Instagram />
-              </a>
+              </Link>
             </li>
-            <li className="hover:text-blue-400 transition-colors">
-              <a href="https://www.github.com/">
+            <li className="transition-colors hover:text-blue-400">
+              <Link href="https://www.github.com/">
                 <Github />
-              </a>
+              </Link>
             </li>
-            <li className="hover:text-blue-400 transition-colors">
-              <a href="mailto:teste@teste.com">
+            <li className="transition-colors hover:text-blue-400">
+              <Link href="mailto:teste@teste.com">
                 <Mail />
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

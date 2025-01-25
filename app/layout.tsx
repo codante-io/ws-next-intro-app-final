@@ -1,12 +1,12 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import Navbar from '@/components/layout/navbar';
-import Footer from '@/components/layout/footer';
+import type { Metadata } from "next";
+import "./globals.css";
+import Navbar from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
 
 export const metadata: Metadata = {
-  title: 'CodanteVagas',
+  title: "CodanteVagas",
   description:
-    'O CodanteVagas conecta candidatos a empregos ideais, oferecendo funcionalidades intuitivas para busca e gerenciamento de vagas.',
+    "O CodanteVagas conecta candidatos a empregos ideais, oferecendo funcionalidades intuitivas para busca e gerenciamento de vagas.",
 };
 
 export default function RootLayout({
@@ -16,10 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-1 container mx-auto">{children}</main>
-        <Footer />
+      <body>
+        <div className="flex min-h-screen flex-col">
+          <Navbar />
+          <main className="flex flex-1">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
