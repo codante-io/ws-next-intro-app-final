@@ -1,6 +1,8 @@
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import Link from "next/link";
+import boatImg from "@/public/boat.png";
 
 export default function NotFound() {
   return (
@@ -8,9 +10,9 @@ export default function NotFound() {
       <h2 className="font-display text-4xl font-black">
         Nada encontrado aqui...
       </h2>
-      <img
+      <Image
         className="mx-auto w-sm"
-        src="/boat.png"
+        src={boatImg}
         alt="ilustração de um barco"
       />
       <p className="text-3xl font-extralight text-gray-400">
