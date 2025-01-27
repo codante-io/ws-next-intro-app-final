@@ -25,7 +25,7 @@ export default async function JobPosting({
   }
 
   return (
-    <div className="container mx-auto max-w-4xl p-4">
+    <div className="mx-auto max-w-5xl">
       <div className="mb-6">
         <Link
           href="/vagas"
