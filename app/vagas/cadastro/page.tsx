@@ -1,16 +1,29 @@
-import { Button } from "@/components/ui/button";
+"use client";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { createJob } from "@/lib/actions";
 import FormItem from "./form-item";
+import Form from "next/form";
+import { useActionState } from "react";
+import { Button } from "@/components/ui/button";
+import { CircleAlert } from "lucide-react";
 
 export default function Cadastro() {
+  const [state, createJobAction, pending] = useActionState(createJob, null);
+
   return (
     <main>
       <h2 className="font-display mb-12 text-2xl font-bold">Cadastrar Vaga</h2>
       <Card className="mx-auto w-full py-8">
-        <form>
+        <Form action={createJobAction}>
           <CardContent className="space-y-6">
+            {state?.error && (
+              <div className="flex items-center gap-4 rounded-md border border-red-200 bg-red-100 p-4 py-6 text-red-900">
+                <CircleAlert className="inline-block h-6 w-6" />
+                {state.message}
+              </div>
+            )}
             <FormItem
               name="Título da Vaga"
               description="Este será o título da vaga que será exibido na busca. Máximo de 30 caracteres"
@@ -40,8 +53,8 @@ export default function Cadastro() {
             >
               <Input
                 className="rounded-xs border-gray-500"
-                id="website"
-                name="website"
+                id="company_website"
+                name="company_website"
                 type="url"
               />
             </FormItem>
@@ -61,11 +74,14 @@ export default function Cadastro() {
               name="Período"
               description="Escolha entre meio-período ou período integral"
             >
-              <Input
+              <select
                 className="rounded-xs border-gray-500"
-                id="period"
-                name="period"
-              />
+                id="schedule"
+                name="schedule"
+              >
+                <option value="full-time">Período Integral</option>
+                <option value="part-time">Meio-Período</option>
+              </select>
             </FormItem>
 
             <FormItem name="Salário" description="Salário mensal">
@@ -73,6 +89,17 @@ export default function Cadastro() {
                 className="rounded-xs border-gray-500"
                 id="salary"
                 name="salary"
+              />
+            </FormItem>
+
+            <FormItem
+              name="Quantidade de Vagas"
+              description="Quantas vagas abertas existem para esta posição"
+            >
+              <Input
+                className="rounded-xs border-gray-500"
+                id="number_of_positions"
+                name="number_of_positions"
               />
             </FormItem>
 
@@ -102,12 +129,13 @@ export default function Cadastro() {
           <CardFooter>
             <Button
               type="submit"
-              className="ml-auto w-full rounded-none px-10 md:w-auto"
+              disabled={pending}
+              className="ml-auto w-full cursor-pointer rounded-none px-10 md:w-auto"
             >
-              Salvar
+              {pending ? "Salvando..." : "Salvar"}
             </Button>
           </CardFooter>
-        </form>
+        </Form>
       </Card>
     </main>
   );
