@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export async function deleteJob(formData: FormData) {
@@ -16,5 +17,6 @@ export async function deleteJob(formData: FormData) {
     throw new Error("Failed to delete job");
   }
 
+  revalidatePath("/vagas");
   redirect("/vagas");
 }
