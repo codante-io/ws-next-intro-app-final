@@ -1,5 +1,7 @@
 import JobItem from "@/components/cards/job-item";
 
+export const dynamic = "force-dynamic";
+
 async function fetchJobs() {
   const res = await fetch("https://apis.codante.io/api/job-board/jobs");
 
